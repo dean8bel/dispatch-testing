@@ -3,7 +3,7 @@
 # Installing
 Clone the repository to your computer:
 
-git clone https://github.com/dean8bel/website-tracker.git
+git clone https://github.com/dean8bel/dispatch-testing.git
 
 Open Google Chrome and go to:
 
