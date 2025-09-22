@@ -3,7 +3,7 @@
 # Installing
 Clone the repository to your computer:
 
-git clone https://github.com/your-username/website-tracker.git
+git clone https://github.com/dean8bel/website-tracker.git
 
 Open Google Chrome and go to:
 
