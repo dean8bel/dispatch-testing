@@ -1,21 +1,119 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Tracker Stats</title>
+  <meta charset="UTF-8">
   <style>
-    body { font-family: sans-serif; width: 300px; padding: 10px; }
-    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-    td, th { border: 1px solid #ccc; padding: 4px; font-size: 12px; }
-    button { margin: 5px 2px; padding: 6px; border-radius: 6px; }
+    body {
+      width: 500px;
+      padding: 15px;
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+    h2 {
+      margin: 0 0 15px 0;
+      font-size: 18px;
+      color: #333;
+    }
+    .controls {
+      margin-bottom: 15px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    button {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      transition: background-color 0.2s;
+    }
+    #toggleBtn {
+      background-color: #007bff;
+      color: white;
+      flex: 1;
+    }
+    #toggleBtn:hover {
+      background-color: #0056b3;
+    }
+    #toggleBtn.stopped {
+      background-color: #28a745;
+    }
+    #toggleBtn.stopped:hover {
+      background-color: #218838;
+    }
+    #resetBtn {
+      background-color: #dc3545;
+      color: white;
+    }
+    #resetBtn:hover {
+      background-color: #c82333;
+    }
+    #exportBtn {
+      background-color: #28a745;
+      color: white;
+    }
+    #exportBtn:hover {
+      background-color: #218838;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    th {
+      background-color: #f8f9fa;
+      padding: 10px;
+      text-align: left;
+      border-bottom: 2px solid #dee2e6;
+      font-weight: 600;
+      color: #495057;
+    }
+    td {
+      padding: 8px 10px;
+      border-bottom: 1px solid #dee2e6;
+    }
+    tr:hover {
+      background-color: #f8f9fa;
+    }
+    .no-data {
+      text-align: center;
+      padding: 20px;
+      color: #6c757d;
+      font-style: italic;
+    }
+    .time-cell {
+      font-weight: 500;
+      color: #007bff;
+    }
   </style>
 </head>
 <body>
-  <h3>Website Stats</h3>
-  <button id="toggleBtn">Stop Tracking</button>
-  <button id="resetBtn">Reset Stats</button>
+  <h2>Website Activity Tracker</h2>
+  
+  <div class="controls">
+    <button id="toggleBtn">⏸️ Stop Tracking</button>
+    <button id="resetBtn">Reset All Stats</button>
+    <button id="exportBtn">Export Data</button>
+  </div>
+
   <table id="statsTable">
-    <tr><th>Site</th><th>Time (s)</th><th>Clicks</th></tr>
+    <thead>
+      <tr>
+        <th>Website</th>
+        <th>Time</th>
+        <th>Clicks</th>
+        <th>Keystrokes</th>
+      </tr>
+    </thead>
+    <tbody id="statsBody">
+      <tr>
+        <td colspan="4" class="no-data">Loading...</td>
+      </tr>
+    </tbody>
   </table>
+
   <script src="popup.js"></script>
 </body>
 </html>

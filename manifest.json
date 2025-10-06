@@ -1,12 +1,15 @@
 {
     "manifest_version": 3,
-    "name": "Website Time & Click Tracker",
+    "name": "Website Activity Tracker",
     "version": "1.0",
+    "description": "Track time spent, clicks, and keystrokes on websites",
     "permissions": [
-      "tabs",
       "storage",
-      "idle",
-      "scripting"
+      "tabs",
+      "idle"
+    ],
+    "host_permissions": [
+      "<all_urls>"
     ],
     "background": {
       "service_worker": "background.js"
@@ -14,11 +17,15 @@
     "content_scripts": [
       {
         "matches": ["<all_urls>"],
-        "js": ["content.js"]
+        "js": ["content.js"],
+        "run_at": "document_start",
+        "all_frames": true
       }
     ],
     "action": {
       "default_popup": "popup.html"
+    },
+    "idle": {
+      "detection_interval": 15
     }
   }
-  
